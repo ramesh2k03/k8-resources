@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs-dynamic
 spec:
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  storageClassName: "expense-ebs" # Empty string must be explicitly set otherwise default StorageClass will be set
   volumeName: ebs-dynamic
   accessModes:
     - ReadWriteOnce
@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-static
+  name: nginx-dynamic
   labels: 
     purpose: ebs-static
     project: expense
@@ -33,4 +33,4 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: ebs-claim
+      claimName: ebs-dynamic

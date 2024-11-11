@@ -56,7 +56,7 @@ kind: Service
 metadata:
   name: nginx-lb
 spec: 
-  type: Loadbalancer
+  type: LoadBalancer
   selector:
     purpose: ebs-static
     project: expense
